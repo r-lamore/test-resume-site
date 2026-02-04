@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachael Lamore - Product Manager & UX Researcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #4a4a4a;
+            --accent: #0891b2;
+            --background: #fafaf8;
+            --surface: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--background);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 40px;
+            margin-bottom: 60px;
+            animation: slideDown 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .contact {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+
+        .contact a {
+            color: var(--secondary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.3s; }
+        section:nth-child(3) { animation-delay: 0.4s; }
+        section:nth-child(4) { animation-delay: 0.5s; }
+        section:nth-child(5) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 36px;
+            padding-left: 24px;
+            border-left: 2px solid #e5e5e5;
+            transition: border-color 0.3s ease;
+        }
+
+        .experience-item:hover,
+        .education-item:hover {
+            border-left-color: var(--accent);
+        }
+
+        h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .meta {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .date {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--surface);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--secondary);
+            max-width: 720px;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 60px;
+            border-top: 1px solid #e5e5e5;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .contact {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rachael Lamore</h1>
+            <div class="title">Product Manager • UX Researcher</div>
+            <div class="contact">
+                <a href="mailto:rlamore2323@gmail.com">rlamore2323@gmail.com</a>
+                <span>•</span>
+                <a href="tel:+14086938949">408-693-8949</a>
+                <span>•</span>
+                <span>South Lake Tahoe, CA</span>
+            </div>
+        </header>
+
+        <section>
+            <div class="section-header">
+                <h2>Summary</h2>
+            </div>
+            <p class="summary">
+                Product-minded researcher and analyst with a proven track record of transforming user insights into 
+                actionable product strategies. Experienced in conducting user research, analyzing complex datasets, 
+                and leading cross-functional projects from discovery to delivery. Combines analytical rigor with 
+                exceptional communication skills to bridge technical and non-technical stakeholders.
+            </p>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Experience</h2>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Senior Research Analyst</h3>
+                <div class="meta">
+                    GearLab • <span class="date">Nov 2023 - Present</span>
+                </div>
+                <ul>
+                    <li>Lead end-to-end product research for high-priority initiatives, developing research plans, timelines, and success metrics</li>
+                    <li>Conduct comprehensive consumer research to uncover user pain points, needs, and behavioral patterns across competitive product categories</li>
+                    <li>Transform qualitative and quantitative insights into actionable product recommendations that drive measurable traffic growth</li>
+                    <li>Collaborate with cross-functional teams to synthesize research findings and prioritize feature development</li>
+                    <li>Deliver presentation-ready data visualizations and reports ensuring accuracy through rigorous fact-checking</li>
+                    <li>Optimize SEO strategies using data-driven insights, achieving traffic goals across multiple product verticals</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Research Project Lead</h3>
+                <div class="meta">
+                    California Polytechnic University • <span class="date">Jan 2016 - Dec 2019</span>
+                </div>
+                <ul>
+                    <li>Led multi-year research initiative analyzing behavioral patterns and environmental interactions, managing project scope and deliverables</li>
+                    <li>Designed and executed research methodologies combining observational studies with quantitative analysis</li>
+                    <li>Built data visualization dashboards using R Studio and specialized analysis tools to communicate complex findings to diverse audiences</li>
+                    <li>Collaborated with cross-functional research team to meet publication deadlines, coordinating peer reviews and iterating on deliverables</li>
+                    <li>Co-authored research papers and presented findings at professional conferences, translating technical data for non-technical audiences</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Business Operations & Customer Experience</h3>
+                <div class="meta">
+                    BioSpirit Spa • <span class="date">Jul 2020 - Jun 2021</span>
+                </div>
+                <ul>
+                    <li>Served as primary customer touchpoint, managing inquiries, explaining service offerings, and optimizing booking flows</li>
+                    <li>Redesigned digital presence including website updates and marketing campaigns to improve user engagement</li>
+                    <li>Analyzed customer feedback patterns to recommend service improvements and operational efficiencies</li>
+                    <li>Coordinated scheduling and resource allocation to maximize customer satisfaction</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Field Operations Specialist</h3>
+                <div class="meta">
+                    Marine Taxonomic Services • <span class="date">Summer 2023</span>
+                </div>
+                <ul>
+                    <li>Executed autonomous fieldwork with focus on data quality, accuracy, and systematic documentation</li>
+                    <li>Implemented quality control processes ensuring data integrity across surveillance operations</li>
+                    <li>Demonstrated adaptability and problem-solving in dynamic, resource-constrained environments</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Education</h2>
+            </div>
+            
+            <div class="education-item">
+                <h3>Bachelor of Science in Biology</h3>
+                <div class="meta">
+                    California Polytechnic University, San Luis Obispo • <span class="date">2015 - 2020</span>
+                </div>
+                <p>Minor in Spanish • Research Focus: Data Analysis & Scientific Communication</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Skills & Tools</h2>
+            </div>
+            
+            <div class="skills">
+                <div class="skill-category">
+                    <h3>Product & Research</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">User Research</span>
+                        <span class="skill-tag">Consumer Insights</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">SEO Strategy</span>
+                        <span class="skill-tag">Product Roadmapping</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Excel/Sheets</span>
+                        <span class="skill-tag">R Studio</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">ArcGIS</span>
+                        <span class="skill-tag">ImageJ</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Core Competencies</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Cross-functional Leadership</span>
+                        <span class="skill-tag">Stakeholder Communication</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Bilingual (Spanish)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Publications & Presentations</h2>
+            </div>
+            
+            <div class="experience-item">
+                <ul>
+                    <li>Presented research at Western Naturalists Conference on context-dependent behavioral analysis across multiple environments</li>
+                    <li>Co-authored NOAA report applying user experience methodology to define and quantify stakeholder engagement with marine sanctuaries</li>
+                    <li>Contributing author to peer-reviewed research paper analyzing ecological drivers across spatial scales (in preparation for <em>Coral Reefs</em>)</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>Last updated: February 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
